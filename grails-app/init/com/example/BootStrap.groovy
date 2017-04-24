@@ -16,7 +16,7 @@ class BootStrap {
     }
 
     private static List<Category> fixtureCategories() {
-        def (clothing, furniture, tools) = ['Clothing', 'Furniture', 'Tools'].collect { new Category(it) }
+        def (clothing, furniture, tools) = ['Clothing', 'Furniture', 'Tools'].collect { new Category(name: it) }
 
         [clothing, furniture, tools]*.save()
 
