@@ -5,6 +5,9 @@ model {
 }
 
 json {
+    hal.links(self: order)
+    hal.embedded(customer: order.customer)
+
     id order.orderId
     shippingCost order.shippingCost
     date order.orderPlaned.format('M-dd-yyyy')
@@ -17,9 +20,5 @@ json {
         zip order.shippingAddress.zip
     }
 
-    products order.products.collect { [id: it.id ] }
-
-    customer {
-        id order.customer.id
-    }
+    products tmpl.product(order.products)
 }

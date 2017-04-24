@@ -1,0 +1,11 @@
+import com.example.Product
+
+model {
+    Product product
+}
+
+json {
+    hal.links(product)
+
+    id product.id
+}
